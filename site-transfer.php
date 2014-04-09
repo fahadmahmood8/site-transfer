@@ -1,7 +1,7 @@
 <?php 
 $file = 'unzip.zip';
 
-echo copy('https://wordpress.org/latest.zip', $file); 
+copy('https://wordpress.org/latest.zip', $file); 
 
 $path = pathinfo(realpath($file), PATHINFO_DIRNAME);
 
@@ -11,9 +11,9 @@ if ($res === TRUE) {
   // extract it to the path we determined above
   $zip->extractTo($path);
   $zip->close();
-  echo "WOOT! $file extracted to $path";
+  echo "Done";
 } else {
-  echo "Doh! I couldn't open $file";
+  echo "Failed";
 }
 //unlink($file);
 //unlink('copy.php');
